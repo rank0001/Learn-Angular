@@ -1,2 +1,26 @@
-<p>all-books works!</p>
-<a routerLink="/books/1">Go to book</a>
+<h2>All Books</h2>
+<button mat-raised-button color="primary" [routerLink]="['new']">
+  Add New Books
+</button>
+<div class="container">
+  <mat-card class="book-card" *ngFor="let book of books">
+    <mat-card-header>
+      <div mat-card-avatar class="book-header-image"></div>
+      <mat-card-title>{{ book.title }}</mat-card-title>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="https://images.unsplash.com/photo-1513001900722-370f803f498d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Ym9va3N8ZW58MHx8MHx8fDA%3D"
+      alt="Photo of books"
+    />
+    <mat-card-content>
+      <p>Author:{{ book.Author }}</p>
+      <p>Total pages:{{ book.totalPages }}</p>
+      <p>Price:{{ book.price.value + " " + book.price.currency }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Details</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
